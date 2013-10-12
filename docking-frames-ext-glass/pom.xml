@@ -11,23 +11,45 @@
 
 	<artifactId>docking-frames-ext-glass</artifactId>
 	<packaging>jar</packaging>
-
 	<name>${project.artifactId}</name>
 	<description>${project.name} is a "glass" theme extension</description>
 
 	<dependencies>
-
 		<dependency>
 			<groupId>org.dockingframes</groupId>
 			<artifactId>docking-frames-common</artifactId>
 			<type>jar</type>
 			<version>${project.version}</version>
-			<scope>compile</scope>
 		</dependency>
-
-		<!-- TODO ask Steffen Kux, software@kuxfamily.de to publish glasslib.jar
-			on maven -->
-
+		<dependency> <!-- chalcodes -->
+		    <groupId>de.kuxfamily</groupId>
+		    <artifactId>glasslib</artifactId>
+		    <version>1.0</version>
+		</dependency>
 	</dependencies>
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.png</include>
+					<include>**/*.ini</include>
+					<include>**/*.svg</include>
+				</includes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${javaVersion}</source>
+					<target>${javaVersion}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
